@@ -89,38 +89,36 @@ const CyberProjects: React.FC<CyberProjectsProps> = () => {
             </div>
 
             <div className="text-block">
-                <h2>TryHackMe King of the Hill</h2>
+                <h2>Pre Security</h2>
+                <h3>TryHackMe · 2024</h3>
                 <br />
                 <div className="captioned-image">
-                    <img src={thmThreatImage} style={styles.image} alt="TryHackMe King of the Hill Certificate" />
+                    <img src={thmThreatImage} style={styles.image} alt="TryHackMe Pre Security Certificate" />
                     <p>
                         <sub>
-                            <b>Figure 4:</b> TryHackMe King of the Hill - Compromise & Defend - 2024
+                            <b>Figure 4:</b> TryHackMe Pre Security - 2024
                         </sub>
                     </p>
                 </div>
                 <p>
-                    The King of the Hill rooms on TryHackMe were some of the most challenging and rewarding experiences in my cybersecurity journey. These competitive environments taught me to think like both an attacker and a defender, as you have to compromise systems while simultaneously protecting them from other participants.
-                </p>
-                <br />
-                <p>
-                    The dynamic nature of these challenges—where the environment constantly changes as participants gain and lose control—provided invaluable experience in rapid incident response, system hardening, and maintaining persistence. It's cybersecurity gaming at its finest, and it really tests your ability to adapt under pressure.
+                    This was my starting point—the hands-on sandbox where I first explored networking, system fundamentals, and basic security concepts. It was the perfect launchpad, filled with "aha!" moments that made me realize just how much I love breaking things down to see how they tick (without actually breaking them, of course).
                 </p>
             </div>
 
             <div className="text-block">
-                <h2>TryHackMe Pre Security Learning Path</h2>
+                <h2>Threat Intelligence Learning Path</h2>
+                <h3>TryHackMe · 2024</h3>
                 <br />
                 <div className="captioned-image">
-                    <img src={thmPreImage} style={styles.image} alt="TryHackMe Pre Security Certificate" />
+                    <img src={thmPreImage} style={styles.image} alt="TryHackMe Threat Intelligence Certificate" />
                     <p>
                         <sub>
-                            <b>Figure 5:</b> TryHackMe Pre Security Learning Path - 2024
+                            <b>Figure 5:</b> TryHackMe Threat Intelligence Learning Path - 2024
                         </sub>
                     </p>
                 </div>
                 <p>
-                    The Pre Security path was my starting point—the hands-on sandbox where I first explored networking, system fundamentals, and basic security concepts. It was the perfect launchpad, filled with "aha!" moments that made me realize just how much I love breaking things down to see how they tick (without actually breaking them, of course).
+                    This one pulled me deep into the minds of threat actors. I learned how to trace attacks, analyze patterns, and turn raw data into actionable insights. It felt like solving a puzzle where every piece tells a story except the stakes are higher, and the clock is always ticking. Loved every minute of it.
                 </p>
             </div>
         </div>
