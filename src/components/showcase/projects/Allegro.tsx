@@ -6,88 +6,107 @@ import allegro4 from '../../../assets/pictures/projects/interiors/allegro/allegr
 import type { StyleSheetCSS } from '../../../types/StyleSheetCSS';
 
 export interface AllegroProjectProps {
-    onBackClick?: () => void;
+    onBackClick: () => void;
 }
 
 const AllegroProject: React.FC<AllegroProjectProps> = ({ onBackClick }) => {
     return (
         <div className="site-page-content">
-            <h1>Allegro Residences</h1>
-            <h3>San Salvador, El Salvador</h3>
+            <h1>Allegro</h1>
+            <h3>Commercial Interior Design</h3>
             <br />
+            
             <div className="text-block">
                 <p>
-                    Tucked into one of the busiest corners of San Salvador, Allegro was our answer to the city's constant motion. I joined both the interior and architectural team, helping shape a space that could feel like a quiet exhale in the middle of the noise.
+                    The Allegro project represents a sophisticated approach to commercial interior design, blending modern aesthetics with functional workspace requirements. This project focused on creating an environment that promotes productivity while maintaining visual appeal and comfort.
                 </p>
-                <br />
-                <div className="captioned-image">
-                    <img src={allegro1} style={styles.image} alt="Allegro Residences - Exterior View" />
-                    <p style={styles.caption}>
-                        <sub>
-                            <b>Figure 1:</b> Allegro Residences exterior design showcasing the modern architectural approach.
-                        </sub>
-                    </p>
-                </div>
                 <br />
                 <p>
-                    The ten-story building holds 40 apartments, each designed with comfort, clarity, and movement in mind. We created four different layouts to meet different lifestyles and filled the building with shared spaces like a rooftop lounge, gym, and pool to bring people together.
+                    Every element was carefully considered to support the daily operations of a dynamic business environment, from the reception area to private meeting spaces.
                 </p>
-                <br />
-                <div className="captioned-image">
-                    <img src={allegro2} style={styles.image} alt="Allegro Residences - Interior Layout" />
-                    <p style={styles.caption}>
-                        <sub>
-                            <b>Figure 2:</b> Interior layout design focusing on comfort and clarity.
-                        </sub>
-                    </p>
-                </div>
-                <br />
-                <div className="captioned-image">
-                    <img src={allegro3} style={styles.image} alt="Allegro Residences - Shared Spaces" />
-                    <p style={styles.caption}>
-                        <sub>
-                            <b>Figure 3:</b> Shared spaces including rooftop lounge and community areas.
-                        </sub>
-                    </p>
-                </div>
-                <br />
-                <p>
-                    Making it pet-friendly was something I personally championed. For me, home isn't complete unless everyone in the family belongs there. Allegro is a space that balances pace and pause, structure and softness. It's one of those projects that reminds me why I love design.
-                </p>
-                <br />
-                <div className="captioned-image">
-                    <img src={allegro4} style={styles.image} alt="Allegro Residences - Apartment Details" />
-                    <p style={styles.caption}>
-                        <sub>
-                            <b>Figure 4:</b> Apartment interior details showcasing the pet-friendly design approach.
-                        </sub>
-                    </p>
-                </div>
-                <br />
-                {onBackClick && (
-                    <div style={styles.backButton} onClick={onBackClick}>
-                        ← Back to Projects
-                    </div>
-                )}
             </div>
+
+            <div style={styles.imageContainer}>
+                <img src={allegro1} alt="Allegro reception area with modern design elements" style={styles.image} />
+                <p style={styles.caption}>
+                    <b>Figure 1:</b> <em>Reception area showcasing clean lines and professional aesthetics</em>
+                </p>
+            </div>
+
+            <div className="text-block">
+                <p>
+                    The design philosophy centered around creating spaces that feel both professional and welcoming. Natural light was maximized throughout, while carefully selected materials and colors contribute to an atmosphere of understated elegance.
+                </p>
+            </div>
+
+            <div style={styles.imageContainer}>
+                <img src={allegro2} alt="Allegro workspace design with natural lighting" style={styles.image} />
+                <p style={styles.caption}>
+                    <b>Figure 2:</b> <em>Open workspace design maximizing natural light and flow</em>
+                </p>
+            </div>
+
+            <div className="text-block">
+                <p>
+                    Meeting spaces were designed to facilitate both formal presentations and collaborative work sessions. The furniture selection balances comfort with functionality, creating environments where ideas can flourish.
+                </p>
+            </div>
+
+            <div style={styles.imageContainer}>
+                <img src={allegro3} alt="Allegro meeting room with collaborative design features" style={styles.image} />
+                <p style={styles.caption}>
+                    <b>Figure 3:</b> <em>Meeting space designed for both formal and collaborative sessions</em>
+                </p>
+            </div>
+
+            <div className="text-block">
+                <p>
+                    The final result is a cohesive workspace that reflects the company's values while providing the flexibility needed for modern business operations. Each area serves its purpose while contributing to the overall harmony of the design.
+                </p>
+            </div>
+
+            <div style={styles.imageContainer}>
+                <img src={allegro4} alt="Final view of the completed Allegro office design" style={styles.image} />
+                <p style={styles.caption}>
+                    <b>Figure 4:</b> <em>The completed workspace - professional, functional, and inspiring</em>
+                </p>
+            </div>
+
+            {/* Back button */}
+            <button
+                onClick={onBackClick}
+                style={styles.backButton}
+                className="back-button"
+            >
+                ← Back to Projects
+            </button>
         </div>
     );
 };
 
 const styles: StyleSheetCSS = {
-    image: {
+    imageContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        margin: '30px 0',
         width: '100%',
-        maxWidth: '800px',
+    },
+    image: {
+        maxWidth: '100%',
         height: 'auto',
-        borderRadius: '4px',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+        borderRadius: '2px',
+        boxShadow: '2px 2px 8px rgba(0, 0, 0, 0.1)',
+        marginBottom: '10px',
     },
     caption: {
+        fontSize: '14px',
+        color: '#666',
         textAlign: 'center',
         fontStyle: 'italic',
-        marginTop: '8px',
-        color: '#666',
-        fontSize: '14px',
+        maxWidth: '600px',
+        lineHeight: '1.4',
+        margin: '0',
     },
     backButton: {
         cursor: 'pointer',
@@ -101,6 +120,10 @@ const styles: StyleSheetCSS = {
         textDecoration: 'underline',
         display: 'block',
         userSelect: 'none',
+        position: 'relative',
+        textAlign: 'left',
+        width: 'auto',
+        clear: 'both',
     },
 };
 

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import folderIcon from '../../../assets/icons/retro-folder.svg';
 import AllegroProject from './Allegro';
+import KibiTechProject from './KibiTech';
+import EcoResidentialProject from './EcoResidential';
+import PaseoVeneciaProject from './PaseoVenecia';
 import type { StyleSheetCSS } from '../../../types/StyleSheetCSS';
 
 export interface InteriorsProjectsProps {}
@@ -12,6 +15,12 @@ const InteriorsProjects: React.FC<InteriorsProjectsProps> = () => {
         console.log(`Opening ${projectName} project`);
         if (projectName === 'Allegro') {
             setSelectedProject('Allegro');
+        } else if (projectName === 'KibiTech') {
+            setSelectedProject('KibiTech');
+        } else if (projectName === 'Eco Residential') {
+            setSelectedProject('Eco Residential');
+        } else if (projectName === 'Paseo Venecia') {
+            setSelectedProject('Paseo Venecia');
         } else {
             // For other projects, show a placeholder for now
             alert(`${projectName} project coming soon!`);
@@ -26,6 +35,24 @@ const InteriorsProjects: React.FC<InteriorsProjectsProps> = () => {
     if (selectedProject === 'Allegro') {
         return (
             <AllegroProject onBackClick={handleBackToList} />
+        );
+    }
+
+    if (selectedProject === 'KibiTech') {
+        return (
+            <KibiTechProject onBackClick={handleBackToList} />
+        );
+    }
+
+    if (selectedProject === 'Eco Residential') {
+        return (
+            <EcoResidentialProject onBackClick={handleBackToList} />
+        );
+    }
+
+    if (selectedProject === 'Paseo Venecia') {
+        return (
+            <PaseoVeneciaProject onBackClick={handleBackToList} />
         );
     }
 
