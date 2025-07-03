@@ -141,7 +141,7 @@ const styles: StyleSheetCSS = {
     },
 };
 
-// Clean retro folder styling - remove all backgrounds and borders
+// Clean retro folder styling with Windows 98 hover color shift
 const styleSheet = document.createElement('style');
 styleSheet.textContent = `
     .folderContainer {
@@ -152,6 +152,7 @@ styleSheet.textContent = `
         box-shadow: none !important;
         backdrop-filter: none !important;
         filter: none !important;
+        transition: all 0.2s ease !important;
     }
     
     .folderContainer > div {
@@ -172,6 +173,7 @@ styleSheet.textContent = `
         box-shadow: none !important;
         backdrop-filter: none !important;
         filter: none !important;
+        transition: filter 0.2s ease !important;
     }
     
     .folderContainer:hover {
@@ -180,6 +182,15 @@ styleSheet.textContent = `
         border: none !important;
         outline: none !important;
         box-shadow: none !important;
+    }
+    
+    .folderContainer:hover img {
+        filter: brightness(1.15) saturate(1.1) hue-rotate(5deg) !important;
+    }
+    
+    .folderContainer:hover .folderLabel {
+        color: #000080 !important;
+        font-weight: bold !important;
     }
     
     .back-button {
