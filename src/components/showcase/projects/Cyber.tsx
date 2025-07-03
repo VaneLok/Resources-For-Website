@@ -16,19 +16,20 @@ const CyberProjects: React.FC<CyberProjectsProps> = () => {
             <br />
             <div className="text-block">
                 <p>
-                    My journey into cybersecurity has been driven by curiosity and a passion for understanding how systems work and how to protect them. These certifications represent my commitment to continuous learning and staying current with cybersecurity best practices and emerging threats.
+                    I've always been a builder at heart. At first, that meant spaces and visuals, then it shifted into systems, networks, and everything behind the scenes. Cybersecurity clicked because it gave me a way to protect the things I care about building.
                 </p>
                 <br />
                 <p>
-                    Each certification has taught me something valuable, from foundational security concepts to specialized skills in threat intelligence, vulnerability assessment, and incident response. I believe in hands-on learning, so alongside these formal certifications, I maintain a home lab where I practice penetration testing, malware analysis, and security monitoring.
+                    These certifications are part of that journey. Each one has opened new doors, from the basics of how networks operate to spotting vulnerabilities and tracing threats. I balance it all out with hands-on practice in my homelab, where I'm constantly testing, exploring, and learning by doing. That's where it all starts to make sense.
                 </p>
             </div>
             
             <div className="text-block">
                 <h2>pfSense Homelab Project</h2>
+                <h3>Canada Day 2024</h3>
                 <br />
                 <p>
-                    I spent Canada Day 2024 doing what I love most—tinkering. This project was all about setting up my first pfSense router (FreeBSD-based) and dropping a fresh Debian server onto the network. It wasn't all smooth sailing, but that's what made it fun.
+                    I spent Canada Day doing what I love most: tinkering. I set up my first pfSense router (FreeBSD-based) and dropped a fresh Debian server onto the network. It wasn't all smooth sailing, my Realtek RTL8125 NIC gave me some driver drama, but a little digging led me to a fix using a pkg install trick I found on Rebecca Peck's blog. Major shoutout to the community for that one. Setting up my own FreeBSD router from scratch was incredibly satisfying and reminded me why I love learning through building.
                 </p>
                 <br />
                 <div className="captioned-image">
@@ -39,20 +40,14 @@ const CyberProjects: React.FC<CyberProjectsProps> = () => {
                         </sub>
                     </p>
                 </div>
-                <p>
-                    My Realtek RTL8125 NIC gave me some serious driver drama. The hardware wasn't playing nice with FreeBSD out of the box, and I found myself troubleshooting network connectivity issues that had me scratching my head for hours. A little digging led me to a fix using a pkg install trick I found on Rebecca Peck's blog. Major shoutout to the community for that one! Once I got the drivers sorted, everything clicked into place and I had my own custom router running smoothly.
-                </p>
-                <br />
-                <p>
-                    Setting up my own FreeBSD router from scratch was incredibly satisfying and reminded me why I love learning through building. There's something special about configuring firewall rules, setting up VLANs, and watching traffic flow through your own custom network infrastructure.
-                </p>
             </div>
 
             <div className="text-block">
-                <h2>CompTIA Security+ (SY0-701)</h2>
+                <h2>Security+ (SY0-701)</h2>
+                <h3>CompTIA · 2025</h3>
                 <br />
                 <div className="captioned-image">
-                    <img src={comptiaImage} style={styles.image} alt="CompTIA Security+ Certificate" />
+                    <img src={comptiaImage} style={styles.certImage} alt="CompTIA Security+ Certificate" />
                     <p>
                         <sub>
                             <b>Figure 2:</b> CompTIA Security+ (SY0-701) - January 2025
@@ -60,19 +55,16 @@ const CyberProjects: React.FC<CyberProjectsProps> = () => {
                     </p>
                 </div>
                 <p>
-                    Earning my Security+ certification was a major milestone that validated my transition into cybersecurity. The exam covered everything from risk management and cryptography to incident response and security architecture. What I loved most was how practical the content was—every concept directly applies to real-world security challenges.
-                </p>
-                <br />
-                <p>
-                    The preparation process involved months of studying security frameworks, understanding threat landscapes, and practicing with hands-on labs. This certification gave me a solid foundation in security principles and opened doors to more specialized areas like threat intelligence and ethical hacking.
+                    This was my official jump into the world of cybersecurity. I studied everything from risk management to incident response and walked away not just certified, but completely hooked. Think of this as the moment I stopped just being curious about security and started getting serious about it.
                 </p>
             </div>
 
             <div className="text-block">
-                <h2>IBM Cybersecurity Analyst Professional Certificate</h2>
+                <h2>Cybersecurity Tools & Cyberattacks</h2>
+                <h3>IBM · 2024</h3>
                 <br />
                 <div className="captioned-image">
-                    <img src={ibmImage} style={styles.image} alt="IBM Cybersecurity Analyst Certificate" />
+                    <img src={ibmImage} style={styles.certImage} alt="IBM Cybersecurity Analyst Certificate" />
                     <p>
                         <sub>
                             <b>Figure 3:</b> IBM Cybersecurity Analyst Professional Certificate - 2024
@@ -80,11 +72,7 @@ const CyberProjects: React.FC<CyberProjectsProps> = () => {
                     </p>
                 </div>
                 <p>
-                    This comprehensive program from IBM deepened my understanding of cybersecurity analysis, incident response, and digital forensics. The hands-on approach included working with real security tools and analyzing actual threat scenarios, which gave me practical experience in identifying and responding to security incidents.
-                </p>
-                <br />
-                <p>
-                    The program covered SIEM tools, network security monitoring, and compliance frameworks. I particularly enjoyed the modules on threat hunting and vulnerability assessment, as they combined technical skills with strategic thinking about enterprise security posture.
+                    This was my crash course into the wild world of cyber threats and the tools used to fight them. I explored everything from malware to mitigation strategies, getting a solid grip on how real-world attacks unfold and how defenders push back. It was messy, fascinating, and exactly what I needed to keep going.
                 </p>
             </div>
 
@@ -93,7 +81,7 @@ const CyberProjects: React.FC<CyberProjectsProps> = () => {
                 <h3>TryHackMe · 2024</h3>
                 <br />
                 <div className="captioned-image">
-                    <img src={thmThreatImage} style={styles.image} alt="TryHackMe Pre Security Certificate" />
+                    <img src={thmThreatImage} style={styles.certImage} alt="TryHackMe Pre Security Certificate" />
                     <p>
                         <sub>
                             <b>Figure 4:</b> TryHackMe Pre Security - 2024
@@ -101,7 +89,7 @@ const CyberProjects: React.FC<CyberProjectsProps> = () => {
                     </p>
                 </div>
                 <p>
-                    This was my starting point—the hands-on sandbox where I first explored networking, system fundamentals, and basic security concepts. It was the perfect launchpad, filled with "aha!" moments that made me realize just how much I love breaking things down to see how they tick (without actually breaking them, of course).
+                    This was my starting point, the hands-on sandbox where I first explored networking, system fundamentals, and basic security concepts. It was the perfect launchpad, filled with "aha!" moments that made me realize just how much I love breaking things down to see how they tick (without actually breaking them, of course).
                 </p>
             </div>
 
@@ -110,7 +98,7 @@ const CyberProjects: React.FC<CyberProjectsProps> = () => {
                 <h3>TryHackMe · 2024</h3>
                 <br />
                 <div className="captioned-image">
-                    <img src={thmPreImage} style={styles.image} alt="TryHackMe Threat Intelligence Certificate" />
+                    <img src={thmPreImage} style={styles.certImage} alt="TryHackMe Threat Intelligence Certificate" />
                     <p>
                         <sub>
                             <b>Figure 5:</b> TryHackMe Threat Intelligence Learning Path - 2024
@@ -128,7 +116,11 @@ const CyberProjects: React.FC<CyberProjectsProps> = () => {
 const styles: StyleSheetCSS = {
     image: {
         height: 'auto',
-        width: '100%',
+        width: '95%',
+    },
+    certImage: {
+        height: 'auto',
+        width: '90%',
     },
 };
 
