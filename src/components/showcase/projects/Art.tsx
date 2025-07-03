@@ -1,53 +1,45 @@
 import React from 'react';
 
-import girlRun from '../../../assets/pictures/projects/art/girl-run.gif';
-
 export interface ArtProjectsProps {}
 
 const ArtProjects: React.FC<ArtProjectsProps> = () => {
     return (
         <div className="site-page-content">
-            <h1>Art & Design</h1>
-            <h3>Endeavors</h3>
+            <h1>Art</h1>
+            <h3>& Pixel Art</h3>
             <br />
             <div className="text-block">
                 <p>
-                    While I love programming and software development, Art,
-                    Design, and Animation will always hold a special place in my
-                    heart.
+                    I've been interested in digital art creation for some time
+                    now, and I eventually stumbled across pixel art. I really
+                    love how it forces you to work with a limited canvas and
+                    think about every pixel you commit to a piece. Below are
+                    some of my favorite pieces I've created over the years.
                 </p>
                 <br />
                 <p>
-                    Here are a few projects/things I've done over the years to
-                    keep the artistic side of me alive. I'm always looking to
-                    push myself creatively and learn new things.
-                </p>
-            </div>
-            <div className="text-block">
-                <h2>Pixel Art and Animation</h2>
-                <br />
-                <p>
-                    In high school, I started learning how to draw and animate
-                    pixel art after becoming interested in video game
-                    development. As I worked on making games over the years, I
-                    learned so much about pixel art and fell in love with
-                    animation.
-                </p>
-                <br />
-                <div className="captioned-image">
-                    <img src={girlRun} alt="" />
-                    <p>
-                        <sub>
-                            <b>Figure 1:</b> Eight Frame Run cycle animated by
-                            myself, original sprite by kevink
-                        </sub>
-                    </p>
-                </div>
-                <p>
-                    I really started enjoying the work I was doing, and felt I
-                    was improving a lot. Around 2017, I started to upload videos
-                    of my work flow and animation process to YouTube just for
-                    fun. I was really surprised however when my first video took
+                    I am usually more interested in the animation side of pixel
+                    art and typically spend a lot of time perfecting the
+                    movements and getting the timing right. I also love
+                    marketing my stuff, so I decided to start a YouTube channel
+                    where I post mostly time-lapse videos of me creating
+                    animation. I started the channel close to{' '}
+                    <a
+                        href="https://www.youtube.com/channel/UCLZkOQxCz-PIq-2nHSYpzGw"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <b>Halloween 2020</b>
+                    </a>
+                    {' '}with this{' '}
+                    <a
+                        href="https://www.youtube.com/watch?v=pDtUX3ZVHJ0"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <b>Pixel Art Walk Cycle</b>
+                    </a>
+                    {' '}video and I was surprised to see that it kinda took
                     off and got a few thousand views! Below are the video links
                     to the work I uploaded to youtube.
                 </p>
