@@ -1,14 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import folderIcon from '../../../assets/icons/retro-folder.svg';
+import AllegroProject from './Allegro';
 import type { StyleSheetCSS } from '../../../types/StyleSheetCSS';
 
 export interface InteriorsProjectsProps {}
 
 const InteriorsProjects: React.FC<InteriorsProjectsProps> = () => {
+    const [selectedProject, setSelectedProject] = useState<string | null>(null);
+
     const handleFolderClick = (projectName: string) => {
         console.log(`Opening ${projectName} project`);
-        // Later we'll add navigation to individual project pages
+        if (projectName === 'Allegro') {
+            setSelectedProject('Allegro');
+        } else {
+            // For other projects, show a placeholder for now
+            alert(`${projectName} project coming soon!`);
+        }
     };
+
+    const handleBackToList = () => {
+        setSelectedProject(null);
+    };
+
+    // If a project is selected, show the project details
+    if (selectedProject === 'Allegro') {
+        return (
+            <AllegroProject onBackClick={handleBackToList} />
+        );
+    }
+
+    // Otherwise show the main folder grid
 
     const projects = [
         { name: 'Allegro', description: 'Commercial Interior Design' },
@@ -101,6 +122,23 @@ const styles: StyleSheetCSS = {
         marginTop: '8px',
         letterSpacing: '0px',
     },
+    backButton: {
+        cursor: 'pointer',
+        padding: '20px 0px',
+        marginTop: '30px',
+        backgroundColor: 'transparent',
+        border: 'none',
+        fontFamily: 'MSSerif, Times, serif',
+        fontSize: '16px',
+        color: '#0000EE',
+        textDecoration: 'underline',
+        display: 'block',
+        userSelect: 'none',
+        position: 'relative',
+        textAlign: 'left',
+        width: 'auto',
+        clear: 'both',
+    },
 };
 
 // Clean retro folder styling - remove all backgrounds and borders
@@ -142,6 +180,29 @@ styleSheet.textContent = `
         border: none !important;
         outline: none !important;
         box-shadow: none !important;
+    }
+    
+    .back-button {
+        position: relative !important;
+        float: none !important;
+        display: block !important;
+        margin-top: 30px !important;
+        margin-bottom: 20px !important;
+        text-align: left !important;
+        width: auto !important;
+        top: auto !important;
+        right: auto !important;
+        left: auto !important;
+        bottom: auto !important;
+    }
+    
+    .back-button:hover {
+        color: #FF0000 !important;
+        text-decoration: underline !important;
+    }
+    
+    .back-button:active {
+        color: #800080 !important;
     }
 `;
 
