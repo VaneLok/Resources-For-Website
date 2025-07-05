@@ -4,6 +4,8 @@ import AllegroProject from './Allegro';
 import KibiTechProject from './KibiTech';
 import EcoResidentialProject from './EcoResidential';
 import PaseoVeneciaProject from './PaseoVenecia';
+import LuncheriaProject from './Luncheria';
+import FurnitureProject from './Furniture';
 import type { StyleSheetCSS } from '../../../types/StyleSheetCSS';
 
 export interface InteriorsProjectsProps {}
@@ -21,6 +23,10 @@ const InteriorsProjects: React.FC<InteriorsProjectsProps> = () => {
             setSelectedProject('Eco Residential');
         } else if (projectName === 'Paseo Venecia') {
             setSelectedProject('Paseo Venecia');
+        } else if (projectName === 'Luncheria') {
+            setSelectedProject('Luncheria');
+        } else if (projectName === 'Furniture') {
+            setSelectedProject('Furniture');
         } else {
             // For other projects, show a placeholder for now
             alert(`${projectName} project coming soon!`);
@@ -53,6 +59,18 @@ const InteriorsProjects: React.FC<InteriorsProjectsProps> = () => {
     if (selectedProject === 'Paseo Venecia') {
         return (
             <PaseoVeneciaProject onBackClick={handleBackToList} />
+        );
+    }
+
+    if (selectedProject === 'Luncheria') {
+        return (
+            <LuncheriaProject onBackClick={handleBackToList} />
+        );
+    }
+
+    if (selectedProject === 'Furniture') {
+        return (
+            <FurnitureProject onBackClick={handleBackToList} />
         );
     }
 
