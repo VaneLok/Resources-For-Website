@@ -1,6 +1,6 @@
 import React from 'react';
 import printer from '../../assets/resume/printer.gif';
-import Resume from '../../assets/resume/Henry_Heffernan_S22_Resume.pdf';
+import Resume from '../../assets/resume/Jennifer Amaya -Junior Cybersecurity Profesional.pdf'; 
 import type { StyleSheetCSS } from '../../types/StyleSheetCSS';
 
 export interface ResumeDownloadProps {
@@ -10,10 +10,10 @@ export interface ResumeDownloadProps {
 const ResumeDownload: React.FC<ResumeDownloadProps> = ({ altText }) => {
     return (
         <div style={styles.resumeContainer}>
-            <img style={styles.resumePrinter} alt="" src={printer} />
+            <img style={styles.resumePrinter} alt="Printer icon" src={printer} />
             <div style={styles.resumeContainerText}>
                 <h3>{altText ? altText : 'Looking for my resume?'}</h3>
-                <a rel="noreferrer" target="_blank" href={Resume}>
+                <a rel="noreferrer" target="_blank" href={Resume} download="Jennifer_Amaya_Resume.pdf">
                     <p>Click here to download it!</p>
                 </a>
             </div>
@@ -30,7 +30,9 @@ const styles: StyleSheetCSS = {
         borderLeftWidth: 0,
         borderRightWidth: 0,
         width: '100%',
+        display: 'flex',
         alignItems: 'center',
+        marginTop: 32,
     },
     resumeContainerText: {
         flexDirection: 'column',

@@ -8,6 +8,12 @@ import sketchA2 from '../../../assets/pictures/projects/art/sketch/A2.png';
 import sketchA3 from '../../../assets/pictures/projects/art/sketch/A3.png';
 import sketchA4 from '../../../assets/pictures/projects/art/sketch/A4.png';
 
+// Import painting images
+import paintingO1 from '../../../assets/pictures/projects/art/paintings/O1.png';
+import paintingO2 from '../../../assets/pictures/projects/art/paintings/O2.png';
+import paintingO3 from '../../../assets/pictures/projects/art/paintings/O3.png';
+import paintingO4 from '../../../assets/pictures/projects/art/paintings/O4.png';
+
 export interface ArtProjectsProps {}
 
 const styles: StyleSheetCSS = {
@@ -113,7 +119,8 @@ const ArtProjects: React.FC<ArtProjectsProps> = () => {
     // Define projects here before they are used
     const projects = [
         { name: 'Sketches', description: 'Drawing & Concept Art' },
-        { name: 'Paintings', description: 'Color & Expression' }
+        { name: 'Paintings', description: 'Color & Expression' },
+        { name: 'Jewellery', description: 'Handcrafted Designs' }
     ];
 
     // Define sketch images with captions
@@ -148,12 +155,46 @@ const ArtProjects: React.FC<ArtProjectsProps> = () => {
         }
     ];
 
+    // Define painting images with captions
+    const paintingImages = [
+        { 
+            src: paintingO1, 
+            caption: 'Golda - Oil Paint. Study of light and shadow through traditional oil techniques on canvas.',
+            alt: 'Golda - Oil Painting',
+            figureNum: 1,
+            gridArea: '1 / 1 / 2 / 2'
+        },
+        { 
+            src: paintingO2, 
+            caption: 'Fabergé Feather - Acrylic Paint. Exploration of texture and ornate detail using layered acrylic methods.',
+            alt: 'Fabergé Feather - Acrylic Painting',
+            figureNum: 2,
+            gridArea: '1 / 2 / 2 / 3'
+        },
+        { 
+            src: paintingO3, 
+            caption: 'Sea Port - Acrylic Paint. Atmospheric perspective study of maritime landscape using acrylic on canvas panel.',
+            alt: 'Sea Port - Acrylic Painting',
+            figureNum: 3,
+            gridArea: '2 / 1 / 3 / 2'
+        },
+        { 
+            src: paintingO4, 
+            caption: 'Price of Freedom - WaterColor Pencils. Mixed media composition exploring narrative themes through translucent color layers.',
+            alt: 'Price of Freedom - WaterColor Pencils',
+            figureNum: 4,
+            gridArea: '2 / 2 / 3 / 3'
+        }
+    ];
+
     const handleFolderClick = (projectName: string) => {
         console.log(`Opening ${projectName} project`);
         if (projectName === 'Sketches') {
             setSelectedProject('Sketches');
         } else if (projectName === 'Paintings') {
             setSelectedProject('Paintings');
+        } else if (projectName === 'Jewellery') {
+            setSelectedProject('Jewellery');
         } else {
             // For other projects, show a placeholder for now
             alert(`${projectName} project coming soon!`);
@@ -217,10 +258,60 @@ const ArtProjects: React.FC<ArtProjectsProps> = () => {
                 <h3>Color & Expression</h3>
                 <br />
                 
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(2, 1fr)',
+                    gap: '30px',
+                    padding: '20px 0',
+                }}>
+                    {paintingImages.map((image, index) => (
+                        <div 
+                            key={index} 
+                            style={{
+                                ...styles.imageContainer,
+                                gridArea: image.gridArea
+                            }}
+                        >
+                            <img 
+                                src={image.src} 
+                                alt={image.alt}
+                                style={styles.image}
+                            />
+                            <div style={styles.caption}>
+                                <span style={styles.figureText}>Figure {image.figureNum}:</span>
+                                <span style={styles.captionText}>{image.caption}</span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <button
+                    onClick={handleBackToList}
+                    style={styles.backButton}
+                    className="back-button"
+                >
+                    ← Back to Art
+                </button>
+            </div>
+        );
+    }
+
+    if (selectedProject === 'Jewellery') {
+        return (
+            <div className="site-page-content">
+                <h1>Jewellery</h1>
+                <h3>Handcrafted Designs</h3>
+                <br />
+                
                 <div className="text-block">
                     <p>
-                        From loose sketches to layered watercolors and bold acrylics, these paintings are the result of time spent with paper, brush, and emotion. Every piece holds a story. Some imagined, some remembered. All made with my hands.
+                        Exploring the intersection of design and craftsmanship through handmade jewellery pieces. Each creation balances form, function, and personal expression through carefully selected materials and techniques.
                     </p>
+                </div>
+                
+                {/* Placeholder for jewellery images - will be populated with real content later */}
+                <div className="text-block">
+                    <p><em>Jewellery gallery coming soon...</em></p>
                 </div>
 
                 <button
