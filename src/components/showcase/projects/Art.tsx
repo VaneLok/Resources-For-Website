@@ -131,14 +131,6 @@ const styles: StyleSheetCSS = {
         display: 'block',
         marginLeft: 'auto',
         marginRight: 'auto',
-    },
-    videoCaption: {
-        fontFamily: 'MSSerif, Times, serif',
-        fontSize: '14px',
-        lineHeight: '1.5',
-        color: '#333',
-        marginTop: '10px',
-        textAlign: 'center',
     }
 };
 
@@ -381,8 +373,17 @@ const ArtProjects: React.FC<ArtProjectsProps> = () => {
                         <source src={ringVideo} type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
-                    <div style={styles.videoCaption}>
-                        Video: Conceptual demonstration of the infinity ring design process and final product showcase.
+                    <div style={{
+                        fontFamily: 'MSSerif, Times, serif',
+                        fontSize: '14px',
+                        lineHeight: '1.5',
+                        color: '#333',
+                        marginTop: '10px',
+                        textAlign: 'center',
+                        width: '100%',
+                        display: 'block'
+                    }}>
+                        <strong>Video:</strong> Conceptual demonstration of the infinity ring design process and final product showcase.
                     </div>
                 </div>
 
