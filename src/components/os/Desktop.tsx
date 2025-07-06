@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import Colors from '../../constants/colors';
 import DesktopShortcut from './DesktopShortcut';
 import type { DesktopShortcutProps } from './DesktopShortcut';
 import Doom from '../applications/Doom';

@@ -72,16 +72,20 @@ const Window: React.FC<WindowProps> = (props) => {
     const onResize = ({ clientX, clientY }: any) => {
         const curWidth = clientX - left;
         const curHeight = clientY - top;
-        if (curWidth > 520) resizeRef.current.style.width = `${curWidth}px`;
-        if (curHeight > 220) resizeRef.current.style.height = `${curHeight}px`;
-        resizeRef.current.style.opacity = 1;
+        if (resizeRef.current) {
+            if (curWidth > 520) resizeRef.current.style.width = `${curWidth}px`;
+            if (curHeight > 220) resizeRef.current.style.height = `${curHeight}px`;
+            resizeRef.current.style.opacity = '1';
+        }
     };
 
     const stopResize = () => {
         setIsResizing(false);
-        setWidth(resizeRef.current.style.width);
-        setHeight(resizeRef.current.style.height);
-        resizeRef.current.style.opacity = 0;
+        if (resizeRef.current) {
+            setWidth(parseInt(resizeRef.current.style.width) || width);
+            setHeight(parseInt(resizeRef.current.style.height) || height);
+            resizeRef.current.style.opacity = '0';
+        }
         window.removeEventListener('mousemove', onResize, false);
         window.removeEventListener('mouseup', stopResize, false);
     };
@@ -100,8 +104,10 @@ const Window: React.FC<WindowProps> = (props) => {
 
     const onDrag = ({ clientX, clientY }: any) => {
         let { x, y } = getXYFromDragProps(clientX, clientY);
-        dragRef.current.style.transform = `translate(${x}px, ${y}px)`;
-        dragRef.current.style.opacity = 1;
+        if (dragRef.current) {
+            dragRef.current.style.transform = `translate(${x}px, ${y}px)`;
+            dragRef.current.style.opacity = '1';
+        }
     };
 
     const stopDrag = ({ clientX, clientY }: any) => {
@@ -128,7 +134,9 @@ const Window: React.FC<WindowProps> = (props) => {
     };
 
     useEffect(() => {
-        dragRef.current.style.transform = `translate(${left}px, ${top}px)`;
+        if (dragRef.current) {
+            dragRef.current.style.transform = `translate(${left}px, ${top}px)`;
+        }
     });
 
     useEffect(() => {
@@ -140,11 +148,15 @@ const Window: React.FC<WindowProps> = (props) => {
     }, [props.onHeightChange, contentHeight]); // eslint-disable-line
 
     useEffect(() => {
-        setContentWidth(contentRef.current.getBoundingClientRect().width);
+        if (contentRef.current) {
+            setContentWidth(contentRef.current.getBoundingClientRect().width);
+        }
     }, [width]);
 
     useEffect(() => {
-        setContentHeight(contentRef.current.getBoundingClientRect().height);
+        if (contentRef.current) {
+            setContentHeight(contentRef.current.getBoundingClientRect().height);
+        }
     }, [height]);
 
     const maximize = () => {

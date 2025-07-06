@@ -176,5 +176,4 @@ const styles: StyleSheetCSS = {
     },
 };
 
-export type { DesktopShortcutProps };
 export default DesktopShortcut;
