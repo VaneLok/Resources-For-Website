@@ -5,7 +5,6 @@ declare global {
     Dos: any;
   }
 }
-const Dos = window.Dos;
 
 interface PlayerProps {
   width: number;
@@ -15,31 +14,110 @@ interface PlayerProps {
 
 export default function DosPlayer(props: PlayerProps) {
   const rootRef = useRef<HTMLDivElement>(null);
-  const [dos, setDos] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [dosInstance, setDosInstance] = useState<any>(null);
 
   useEffect(() => {
-    if (!Dos || !rootRef.current) return;
+    if (!rootRef.current) return;
 
-    const root = rootRef.current as HTMLDivElement;
-    const instance = Dos(root);
+    const initDos = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        
+        // Wait for Dos to be available
+        let attempts = 0;
+        const maxAttempts = 50;
+        
+        while (!window.Dos && attempts < maxAttempts) {
+          await new Promise(resolve => setTimeout(resolve, 100));
+          attempts++;
+        }
 
-    setDos(instance);
+        if (!window.Dos) {
+          throw new Error('js-dos library failed to load');
+        }
 
-    const elements = rootRef.current.getElementsByClassName('flex-grow-0');
-    while (elements.length > 0) {
-      elements[0].remove();
-    }
+        console.log('js-dos library loaded, creating instance...');
+        
+        // Create DOS instance
+        const root = rootRef.current;
+        if (!root) return;
 
-    return () => {
-      instance.stop();
+        const dosInstance = window.Dos(root, {
+          wdosboxUrl: "/js-dos/wdosbox.js",
+        });
+
+        setDosInstance(dosInstance);
+
+        // Run the bundle
+        console.log('Running bundle:', props.bundleUrl);
+        dosInstance.run(props.bundleUrl);
+
+        setIsLoading(false);
+
+        // Clean up js-dos UI elements after a delay
+        setTimeout(() => {
+          const elements = root.querySelectorAll('.dos-ci-sidebar, .dos-ci-mobile-controls');
+          elements.forEach(el => el.remove());
+        }, 1000);
+
+      } catch (err) {
+        console.error('Error initializing DOS:', err);
+        setError(err instanceof Error ? err.message : 'Failed to initialize DOS');
+        setIsLoading(false);
+      }
     };
-  }, [rootRef]);
 
-  useEffect(() => {
-    if (dos !== null) {
-      dos.run(props.bundleUrl);
-    }
-  }, [dos, props.bundleUrl]);
+    initDos();
+
+    // Cleanup
+    return () => {
+      if (dosInstance && typeof dosInstance.stop === 'function') {
+        dosInstance.stop();
+      }
+    };
+  }, [props.bundleUrl]);
+
+  if (error) {
+    return (
+      <div style={{ 
+        width: props.width, 
+        height: props.height, 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center',
+        backgroundColor: '#000',
+        color: '#fff',
+        fontSize: '14px',
+        textAlign: 'center',
+        padding: '20px'
+      }}>
+        <div>
+          <div>Error loading DOS game:</div>
+          <div style={{ fontSize: '12px', marginTop: '10px' }}>{error}</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <div style={{ 
+        width: props.width, 
+        height: props.height, 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center',
+        backgroundColor: '#000',
+        color: '#fff',
+        fontSize: '14px'
+      }}>
+        Loading DOS game...
+      </div>
+    );
+  }
 
   return (
     <div
@@ -47,8 +125,9 @@ export default function DosPlayer(props: PlayerProps) {
       style={{
         width: props.width,
         height: props.height,
-        position: 'absolute',
+        position: 'relative',
+        backgroundColor: '#000',
       }}
-    ></div>
+    />
   );
 }

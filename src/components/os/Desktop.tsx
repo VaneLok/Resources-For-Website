@@ -10,7 +10,6 @@ import Henordle from '../applications/Henordle';
 import Toolbar from './Toolbar';
 import Scrabble from '../applications/Scrabble';
 import type { IconName } from '../../assets/icons';
-import Credits from '../applications/Credits';
 import ShowcaseExplorer from '../applications/ShowcaseExplorer';
 import type { StyleSheetCSS } from '../../types/StyleSheetCSS';
 import type { WindowAppProps } from '../../types/WindowAppProps';
@@ -63,12 +62,6 @@ const APPLICATIONS: {
         name: 'Henordle',
         shortcutIcon: 'henordleIcon',
         component: Henordle,
-    },
-    credits: {
-        key: 'credits',
-        name: 'Credits',
-        shortcutIcon: 'credits',
-        component: Credits,
     },
 };
 
@@ -271,7 +264,7 @@ const styles: StyleSheetCSS = {
     desktop: {
         minHeight: '100%',
         flex: 1,
-        backgroundColor: Colors.turquoise,
+        background: 'linear-gradient(to bottom, #ff91c7, #ff1493)',
     },
     shutdown: {
         minHeight: '100%',
